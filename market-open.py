@@ -11,11 +11,5 @@ api = tradeapi.REST(
     secret_key=APCA_API_SECRET_KEY
 )
 
-# Submit a market order to buy 1 share of Apple at market price
-api.submit_order(
-    symbol='AAPL',
-    qty=2,
-    side='sell',
-    type='market',
-    time_in_force='gtc'
-)
+clock = tradeapi.get_clock()
+print(f"The market id {'open' if clock.is_open else 'close'}")
